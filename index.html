@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Restro Pos</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <div id="container" class="bg-slate-200">
+      <!-- ------------------------------  Header -->
+
+      <header
+        id="header"
+        class="flex justify-between items-center gap-5 py-3 px-5 md:px-7 bg-white"
+      >
+        <div class="flex items-center gap-5 md:gap-10">
+          <h2 id="logo" class="text-2xl font-bold whitespace-nowrap">
+            Restro POS
+          </h2>
+          <div
+            id="search-bar"
+            class="relative md:w-72 rounded-md hidden lg:block"
+          >
+            <input
+              type="text"
+              name="search"
+              placeholder="search..."
+              class="bg-slate-200 w-full rounded-md px-5 py-2 outline-slate-400"
+            />
+            <i class="fa-solid fa-magnifying-glass absolute right-2 top-3"></i>
+          </div>
+        </div>
+        <div class="flex items-center md:gap-10">
+          <div class="hidden md:flex md:items-center md:gap-5 text-slate-600">
+            <button
+              class="bg-slate-200 h-10 w-10 rounded-md hover:outline hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200 hover:shadow-md hover:shadow-red-500"
+            >
+              <i class="fa-solid fa-arrows-rotate"></i>
+            </button>
+            <button
+              class="bg-slate-200 h-10 w-10 rounded-md hover:outline hover:text-green-700 hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200 hover:shadow-md hover:shadow-red-500"
+            >
+              <i class="fa-solid fa-wifi"></i>
+            </button>
+          </div>
+          <button
+            class="flex items-center gap-3 bg-[var(--orange)] duration-200 hover:shadow-md hover:shadow-red-500 hover:outline hover:outline-[var(--orange)] hover:text-slate-600 hover:bg-[var(--hover)] text-white px-3 py-2 rounded-md"
+          >
+            <i class="fa-solid fa-table"></i>
+            <span class="whitespace-nowrap">Select Table</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ------------------------------- Navbar -->
+      <div
+        id="navbar"
+        class="bg-white text-slate-600 flex overflow-hidden flex-col gap-7 items-center sticky top-0"
+      >
+        <div class="md:pt-5 md:pl-[22px] self-start hidden md:block">
+          <button id="menuBtn">
+            <i class="fa-solid fa-bars text-3xl"></i>
+          </button>
+        </div>
+        <div class="lg:flex lg:flex-col lg:gap-5 w-full">
+          <nav
+            class="top-nav py-3 md:py-0 flex justify-around gap-2 w-full items-center md:flex-col"
+          >
+            <button class="menus">
+              <i class="fa fa-house"></i>
+              <p>Home</p>
+            </button>
+            <button class="menus">
+              <i class="fa-solid fa-user"></i>
+              <p>User</p>
+            </button>
+            <button class="menus">
+              <i class="fa-solid fa-table"></i>
+              <p>Tables</p>
+            </button>
+            <button class="menus">
+              <i class="fa fa-euro"></i>
+              <p>Cashier</p>
+            </button>
+            <button class="menus">
+              <i class="fa fa-bag-shopping"></i>
+              <p>Orders</p>
+            </button>
+            <button class="menus">
+              <i class="fa-solid fa-flag"></i>
+              <p>Reports</p>
+            </button>
+            <button class="menus">
+              <i class="fa-solid fa-gear"></i>
+              <p>Setting</p>
+            </button>
+          </nav>
+          <nav
+            class="bottom-nav hidden md:flex md:justify-between md:gap-3 md:flex-col md:items-center"
+          >
+            <img class="w-7 rounded-full" src="./assets/profile.jpg" alt="" />
+            <button class="menus">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <p class="whitespace-nowrap">Log out</p>
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------- Main  -->
+      <main id="main">
+        <!-- ---------  One  -->
+        <div id="products" class="p-3 grid grid-cols-1 gap-5">
+          <div
+            class="menu-bar text-slate-600 bg-white flex items-center justify-around p-2 max-h-10 rounded-md"
+          >
+            <button
+              class="px-1 py-1 md:py-0 text-xs sm:text-lg rounded-md hover:outline hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200 hover:shadow-md hover:shadow-red-500"
+            >
+              <a href="#">Starters</a>
+            </button>
+            <button
+              class="px-1 py-1 md:py-0 text-xs sm:text-lg rounded-md hover:outline hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200 hover:shadow-sm hover:shadow-red-500"
+            >
+              <a href="#">Breakfast</a>
+            </button>
+            <button
+              class="px-1 py-1 md:py-0 text-xs sm:text-lg rounded-md hover:outline hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200 hover:shadow-sm hover:shadow-red-500"
+            >
+              <a href="#">Lunch</a>
+            </button>
+            <button
+              class="px-1 py-1 md:py-0 text-xs sm:text-lg rounded-md hover:outline hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200 hover:shadow-sm hover:shadow-red-500"
+            >
+              <a href="#">Supper</a>
+            </button>
+            <button
+              class="px-1 py-1 md:py-0 text-xs sm:text-lg rounded-md hover:outline hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200 hover:shadow-sm hover:shadow-red-500"
+            >
+              <a href="#">Desert</a>
+            </button>
+            <button
+              class="px-1 py-1 md:py-0 text-xs sm:text-lg rounded-md hover:outline hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200 hover:shadow-sm hover:shadow-red-500"
+            >
+              <a href="#">Beverage</a>
+            </button>
+          </div>
+          <div
+            id="foods"
+            class="grid text-slate-600 gap-x-5 gap-y-10 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4"
+          >
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/one.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Schezwan Fish Fry</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/two.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Stir Egg Fry Udon Salad</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/three.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Thai Style Fried Meats</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/four.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Chinese Mutton with cheese</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/five.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Fresh Fruits as Snacks</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/one.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Fruits with vegetable salad</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/one.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Schezwan Fish Fry</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/two.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Stir Egg Fry Udon Salad</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/three.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Thai Style Fried Meats</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/four.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Chinese Mutton with cheese</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/five.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Fresh Fruits as Snacks</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/one.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Fruits with vegetable salad</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/three.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Thai Style Fried Meats</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/four.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Chinese Mutton with cheese</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/five.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Fresh Fruits as Snacks</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+            <div
+              class="bg-white p-2 rounded-md flex flex-col gap-3 shadow-md hover:shadow-xl duration-500 cursor-pointer items-center text-center"
+            >
+              <img class="w-24" src="./assets/one.png" alt="food" />
+              <div class="food-info flex flex-col gap-2">
+                <p>Fruits with vegetable salad</p>
+                <h4>$24.00</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- --------- Two -->
+        <div
+          id="cart"
+          class="p-[10px] lg:my-1 lg:p-0 lg:border-l-[0.5px] lg:border-slate-300"
+        >
+          <div
+            class="overflow-hidden lg:sticky lg:top-0 lg:h-screen rounded-md lg:rounded-none"
+          >
+            <div
+              class="customer text-slate-600 p-5 lg:p-2 mb-[2px] bg-white flex justify-between items-center"
+            >
+              <button
+                class="bg-slate-200 text-sm px-3 py-1 rounded-md hover:outline hover:outline-[0.5px] hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200"
+              >
+                + Add customer
+              </button>
+              <div class="icons flex items-center gap-3">
+                <button
+                  class="bg-slate-200 text-xs p-[6px] rounded-md hover:outline hover:outline-[0.5px] hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <button
+                  class="bg-slate-200 text-xs p-[6px] rounded-md hover:outline hover:outline-[0.5px] hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200"
+                >
+                  <i class="fas fa-table"></i>
+                </button>
+                <button
+                  class="bg-slate-200 text-xs p-[6px] rounded-md hover:outline hover:outline-[0.5px] hover:text-[var(--orange)] hover:bg-[var(--hover)] hover:outline-[var(--orange)] duration-200"
+                >
+                  <i class="fas fa-rotate-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- ---------------------- Dishes -->
+            <div
+              id="dishes"
+              class="bg-white flex flex-col gap-5 lg:gap-2 lg:h-[40vh] overflow-y-auto overflow-x-hidden"
+            >
+              <div id="dish" class="px-5 lg:px-2 py-3 lg:py-2 text-slate-600">
+                <details>
+                  <summary
+                    class="flex items-center justify-between font-medium text-slate-700 text-sm"
+                  >
+                    <div id="title" class="flex items-center gap-2">
+                      <i class="fa-solid fa-chevron-down"></i>
+                      <h4>Schezwan Fish Fry</h4>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <h4>$24.00</h4>
+                      <i class="fas fa-trash text-xs text-red-500"></i>
+                    </div>
+                  </summary>
+                  <div
+                    id="open"
+                    class="grid grid-cols-2 gap-5 pt-3 px-8 w-full"
+                  >
+                    <div class=" ">
+                      <label for="quantity">Quantity</label><br />
+                      <input
+                        class="border border-black w-full rounded-md outline-none"
+                        type="number"
+                        name=""
+                        id=""
+                      />
+                    </div>
+                    <div class=" ">
+                      <label for="Discount">Discount</label><br />
+                      <input
+                        class="border border-black w-full rounded-md outline-none"
+                        type="number"
+                        name=""
+                        id=""
+                      />
+                    </div>
+                  </div>
+                </details>
+              </div>
+              <div id="dish" class="px-5 lg:px-2 py-3 lg:py-2 text-slate-600">
+                <details>
+                  <summary
+                    class="flex items-center justify-between font-medium text-slate-700 text-sm"
+                  >
+                    <div id="title" class="flex items-center gap-2">
+                      <i class="fa-solid fa-chevron-down"></i>
+                      <h4>Spicy Shrimp soup</h4>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <h4>$40.00</h4>
+                      <i class="fas fa-trash text-xs text-red-500"></i>
+                    </div>
+                  </summary>
+                  <div
+                    id="open"
+                    class="grid grid-cols-2 gap-5 pt-3 px-8 w-full"
+                  >
+                    <div class=" ">
+                      <label for="quantity">Quantity</label><br />
+                      <input
+                        class="border border-black w-full rounded-md outline-none"
+                        type="number"
+                        name=""
+                        id=""
+                      />
+                    </div>
+                    <div class=" ">
+                      <label for="Discount">Discount</label><br />
+                      <input
+                        class="border border-black w-full rounded-md outline-none"
+                        type="number"
+                        name=""
+                        id=""
+                      />
+                    </div>
+                  </div>
+                </details>
+              </div>
+              <div id="dish" class="px-5 lg:px-2 py-3 lg:py-2 text-slate-600">
+                <details>
+                  <summary
+                    class="flex items-center justify-between font-medium text-slate-700 text-sm"
+                  >
+                    <div id="title" class="flex items-center gap-2">
+                      <i class="fa-solid fa-chevron-down"></i>
+                      <h4>thai Fried Noodles</h4>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <h4>$30.00</h4>
+                      <i class="fas fa-trash text-xs text-red-500"></i>
+                    </div>
+                  </summary>
+                  <div
+                    id="open"
+                    class="grid grid-cols-2 gap-5 pt-3 px-8 w-full"
+                  >
+                    <div class=" ">
+                      <label for="quantity">Quantity</label><br />
+                      <input
+                        class="border border-black w-full rounded-md outline-none"
+                        type="number"
+                        name=""
+                        id=""
+                      />
+                    </div>
+                    <div class=" ">
+                      <label for="Discount">Discount</label><br />
+                      <input
+                        class="border border-black w-full rounded-md outline-none"
+                        type="number"
+                        name=""
+                        id=""
+                      />
+                    </div>
+                  </div>
+                </details>
+              </div>
+              <div id="dish" class="px-5 lg:px-2 py-3 lg:py-2 text-slate-600">
+                <details>
+                  <summary
+                    class="flex items-center justify-between font-medium text-slate-700 text-sm"
+                  >
+                    <div id="title" class="flex items-center gap-2">
+                      <i class="fa-solid fa-chevron-down"></i>
+                      <h4>Fried Rice</h4>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <h4>$60.00</h4>
+                      <i class="fas fa-trash text-xs text-red-500"></i>
+                    </div>
+                  </summary>
+                  <div
+                    id="open"
+                    class="grid grid-cols-2 gap-5 pt-3 px-8 w-full"
+                  >
+                    <div class=" ">
+                      <label for="quantity">Quantity</label><br />
+                      <input
+                        class="border border-black w-full rounded-md outline-none"
+                        type="number"
+                        name=""
+                        id=""
+                      />
+                    </div>
+                    <div class=" ">
+                      <label for="Discount">Discount</label><br />
+                      <input
+                        class="border border-black w-full rounded-md outline-none"
+                        type="number"
+                        name=""
+                        id=""
+                      />
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+            <div class="bg-white p-5 lg:p-3">
+              <div
+                class="flex justify-between items-center p-2 bg-[var(--hover)] rounded-md"
+              >
+                <h3 class="text-sm">Add</h3>
+                <div
+                  class="flex items-center whitespace-nowrap gap-2 cursor-pointer text-sm lg:text-xs xl:text-sm text-[var(--orange)]"
+                >
+                  <h4>Discount</h4>
+                  <h4>Coupon Code</h4>
+                  <h4>Note</h4>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 py-10 lg:py-2">
+              <table class="w-full">
+                <tr class="text-sm">
+                  <td>Subtotal</td>
+                  <td>$200.00</td>
+                </tr>
+                <tr class="text-sm">
+                  <td>Tax</td>
+                  <td>$45.00</td>
+                </tr>
+                <tr class="font-medium leading-[50px]">
+                  <td><h3>Payable Amount</h3></td>
+                  <td><h3>$195.00</h3></td>
+                </tr>
+              </table>
+              <div class="flex justify-start gap-5 py-5 lg:py-0">
+                <button
+                  class="flex items-center hover:outline hover:outline-white gap-2 bg-[var(--orange)] text-white p-2 rounded-md"
+                >
+                  <i class="fa-regular fa-circle-pause"></i>
+                  Hold Order
+                </button>
+                <button
+                  class="flex items-center hover:outline hover:outline-white gap-2 bg-[var(--green)] text-white p-2 rounded-md"
+                >
+                  <i class="fa-regular fa-circle-play"></i>
+                  Proceed
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
